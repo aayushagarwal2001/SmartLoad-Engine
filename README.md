@@ -26,6 +26,10 @@ docker compose up --build
 
 ```bash
 curl http://localhost:8080/healthz
+# {"status": "ok"}
+
+curl http://localhost:8080/actuator/health
+# {"status": "UP"}
 ```
 
 ## Example request
@@ -64,10 +68,10 @@ curl -X POST "http://localhost:8080/api/v1/load-optimizer/optimize?include_alter
 
 | Status | Condition |
 |--------|-----------|
-| 200 | Success (including no feasible combination) |
+| 200 | Success |
 | 400 | Invalid field values |
 | 413 | More than 22 orders submitted |
-| 422 | Missing required fields or constraint violations |
+| 422 | Missing required fields, constraint violations, empty orders, or no feasible combination |
 
 ## Run tests locally
 

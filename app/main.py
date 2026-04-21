@@ -13,6 +13,11 @@ def health():
     return {"status": "ok"}
 
 
+@app.get("/actuator/health")
+def actuator_health():
+    return {"status": "UP"}
+
+
 @app.post("/api/v1/load-optimizer/optimize", response_model=OptimizeResponse, response_model_exclude_none=True)
 def optimize_load(request: OptimizeRequest, include_alternatives: bool = False):
     truck = request.truck
@@ -25,6 +30,12 @@ def optimize_load(request: OptimizeRequest, include_alternatives: bool = False):
         )
 
     result = optimize(truck, orders)
+
+    if orders and not result.selected_orders:
+        return JSONResponse(
+            status_code=422,
+            content={"detail": "No feasible combination: all orders exceed truck capacity limits."},
+        )
 
     w_pct = round(result.total_weight_lbs / truck.max_weight_lbs * 100, 2)
     v_pct = round(result.total_volume_cuft / truck.max_volume_cuft * 100, 2)

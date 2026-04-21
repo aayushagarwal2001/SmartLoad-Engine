@@ -50,6 +50,25 @@ class OptimizeRequest(BaseModel):
     truck: Truck
     orders: List[Order]
 
+    @field_validator("orders")
+    @classmethod
+    def orders_not_empty(cls, v: List["Order"]) -> List["Order"]:
+        if not v:
+            raise ValueError("orders must not be empty")
+        return v
+
+    @model_validator(mode="after")
+    def no_duplicate_order_ids(self) -> "OptimizeRequest":
+        ids = [o.id for o in self.orders]
+        seen, dupes = set(), set()
+        for oid in ids:
+            if oid in seen:
+                dupes.add(oid)
+            seen.add(oid)
+        if dupes:
+            raise ValueError(f"Duplicate order IDs: {sorted(dupes)}")
+        return self
+
 
 class OptimizeResponse(BaseModel):
     truck_id: str
