@@ -1,0 +1,23 @@
+{
+  "truck": {
+    "id": "truck-21",
+    "max_weight_lbs": 42000,
+    "max_volume_cuft": 2800
+  },
+  "orders": [
+    { "id": "ord-01", "payout_cents": 300000, "weight_lbs": 26000, "volume_cuft": 1600, "origin": "X", "destination": "Y", "pickup_date": "2025-02-01", "delivery_date": "2025-02-05", "is_hazmat": true },
+    { "id": "ord-02", "payout_cents": 180000, "weight_lbs": 14000, "volume_cuft": 900,  "origin": "X", "destination": "Y", "pickup_date": "2025-02-01", "delivery_date": "2025-02-04", "is_hazmat": true },
+
+    { "id": "ord-03", "payout_cents": 120000, "weight_lbs": 8000,  "volume_cuft": 500,  "origin": "X", "destination": "Y", "pickup_date": "2025-02-02", "delivery_date": "2025-02-04", "is_hazmat": false },
+    { "id": "ord-04", "payout_cents": 110000, "weight_lbs": 7000,  "volume_cuft": 450,  "origin": "X", "destination": "Y", "pickup_date": "2025-02-02", "delivery_date": "2025-02-03", "is_hazmat": false },
+    { "id": "ord-05", "payout_cents": 100000, "weight_lbs": 6000,  "volume_cuft": 400,  "origin": "X", "destination": "Y", "pickup_date": "2025-02-03", "delivery_date": "2025-02-05", "is_hazmat": false },
+    { "id": "ord-06", "payout_cents": 130000, "weight_lbs": 9000,  "volume_cuft": 600,  "origin": "X", "destination": "Y", "pickup_date": "2025-02-03", "delivery_date": "2025-02-06", "is_hazmat": false },
+    { "id": "ord-07", "payout_cents": 90000,  "weight_lbs": 5000,  "volume_cuft": 300,  "origin": "X", "destination": "Y", "pickup_date": "2025-02-01", "delivery_date": "2025-02-02", "is_hazmat": false },
+    { "id": "ord-08", "payout_cents": 95000,  "weight_lbs": 5500,  "volume_cuft": 350,  "origin": "X", "destination": "Y", "pickup_date": "2025-02-02", "delivery_date": "2025-02-04", "is_hazmat": false },
+
+    { "id": "ord-09", "payout_cents": 140000, "weight_lbs": 10000, "volume_cuft": 700,  "origin": "X", "destination": "Z", "pickup_date": "2025-02-01", "delivery_date": "2025-02-03", "is_hazmat": false },
+
+    { "id": "ord-10", "payout_cents": 160000, "weight_lbs": 12000, "volume_cuft": 800,  "origin": "X", "destination": "Y", "pickup_date": "2025-02-04", "delivery_date": "2025-02-07", "is_hazmat": false },
+    { "id": "ord-11", "payout_cents": 125000, "weight_lbs": 8500,  "volume_cuft": 550,  "origin": "X", "destination": "Y", "pickup_date": "2025-02-05", "delivery_date": "2025-02-08", "is_hazmat": false }
+  ]
+}
